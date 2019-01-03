@@ -1,0 +1,25 @@
+{
+  "name": "homework12",
+  "version": "1.0.0",
+  "description": "My project, where I using a fetch.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NovoseletskiyVadim/NovoseletskiyVadim.github.io.git"
+  },
+  "author": "Novoseletskiy Vadim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NovoseletskiyVadim/NovoseletskiyVadim.github.io/issues"
+  },
+  "homepage": "https://github.com/NovoseletskiyVadim/NovoseletskiyVadim.github.io#readme"
+}
