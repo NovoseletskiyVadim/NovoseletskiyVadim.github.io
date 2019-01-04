@@ -7,13 +7,13 @@ gulp.task('sass', function(){
     return gulp.src('app/sass/**/*.sass') // Берем источник
     .pipe(sass()) 
     .pipe(gulp.dest('app/css')) 
-    // .pipe(browserSync.reload({stream: true})) 
+    .pipe(browserSync.reload({stream: true})) 
 });
 
 gulp.task('browser-sync', function() { // Создаем таск browser-sync
     browserSync({ // Выполняем browserSync
         server: { // Определяем параметры сервера
-            baseDir: 'app' // Директория для сервера - app
+            baseDir: '../NovoseletskiyVadim.github.io' // Директория для сервера - app
         },
         notify: false // Отключаем уведомления
     });
