@@ -6,7 +6,7 @@
 .container .cols{
 	float: left;
 	margin: 0 0 0.1em;
-	padding:0 0.1em;
+	padding:0 0 0.1em;
 	text-align: center;}
 
 .container .cols.col-1,
@@ -26,17 +26,17 @@
 
 
 /* clear fix  */
-  .container:before,
-  .container:after,
-  .row:before,
-  .row:after,
-  .clear:before,
-  .clear:after{
-  	content:"";
-  	display:table;}
+.container:before,
+.container:after,
+.row:before,
+.row:after,
+.clear:before,
+.clear:after{
+  content:"";
+  display:table;}
 
-  .container:after,
-  .row:after,
-  .clear:after{
-  	clear: both;}
+.container:after,
+.row:after,
+.clear:after{
+  clear: both;}
 /* end clear fix */
