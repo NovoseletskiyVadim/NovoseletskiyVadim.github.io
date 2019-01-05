@@ -1,18 +1,28 @@
 console.log('fetch.js=ok');
 
 getInfoProfileGit();
+getInfoRepositoryGit();
+
+
+
+
+
 
 function getInfoProfileGit(){
     var url = "https://api.github.com/users/NovoseletskiyVadim";
 		
     fetch(url)
         .then(function(response) {
-            console.log('1st promise ', response); // 200
-            if (response.status == 200)
+            // console.log('1st promise ', response); // 200
+            if (response.status == 200){
+
                 return response.json();
+            }
+                
+                
         })
         .then(function(response) {
-            console.log('2nd promise ',response);
+            // console.log('2nd promise ',response);
             var gifString = response.avatar_url;
             var name=response.name;
             var created=response.created_at;
@@ -49,4 +59,78 @@ function getInfoProfileGit(){
 
         })
         .catch( alert );
+}
+
+function getInfoRepositoryGit(){
+    var url="https://api.github.com/users/NovoseletskiyVadim/repos";
+
+    fetch(url)
+        .then(function(response){
+            console.log("1 st promise",response);
+            if(response.status==200){
+
+                return response.json();
+            }
+            
+        })
+        .then(function(response){
+            console.log("2 promise", response);
+
+            // document.getElementById('repositories').innerHTML='';
+            var h_2=document.createElement('h2');
+            h_2.innerText="My List Repositories :";
+
+            var ulRepoList=document.createElement('ul');
+
+            document.getElementById('repositories').appendChild(h_2);
+
+            for( let i=0;i<response.length;i++){
+
+                var listElement=document.createElement('li');
+                listElement.innerText=response[i].full_name;
+                listElement.setAttribute('id','elem'+i);
+                ulRepoList.appendChild(listElement);
+
+
+            }
+
+            document.getElementById('repositories').appendChild(ulRepoList);
+
+            var divInfoLastComit=document.createElement('div');
+            divInfoLastComit.setAttribute('id','divInfoLastComit');
+            document.getElementById('repositories').appendChild(divInfoLastComit);
+
+
+
+            for(let i=0;i<response.length;i++){
+
+                document.getElementById('elem'+i).onclick=function(){
+                    console.log("ok click=",response[i].full_name);
+                       
+                };
+
+                document.getElementById('elem'+i).onmouseover=function(){
+                    let elemLi=document.getElementsByTagName('li')
+                    for(let i=0;i<elemLi.length;i++){
+                        elemLi[i].style.color='black';
+                    }
+                    this.style.color='red';
+
+                    document.getElementById('divInfoLastComit').innerHTML='';
+                    var h_3=document.createElement('h3');
+                    h_3.innerText='Last commit was :';
+                    divInfoLastComit.appendChild(h_3);
+
+                    var dateLastComit=document.createElement('p');
+                    dateLastComit.innerText="date: "+response[i].updated_at;
+                    divInfoLastComit.appendChild(dateLastComit);
+
+                }
+
+            }
+
+
+
+        })
+        .catch(alert);
 }
