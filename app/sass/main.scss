@@ -2,7 +2,15 @@
 @import 'reset';
 @import 'container';
 
+img{
+  width: 80%;
+  float: left;
+}
 
+p{
+  text-align: left;
+  font-size: 1.2em;
+}
 
 
 
@@ -16,8 +24,3 @@
 @import'size1199_1379';
 @import'size1379_1929';
 
-
-
-body{
-  color: rgb(0, 255, 179);
-}
