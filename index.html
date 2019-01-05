@@ -7,23 +7,26 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="app/css/main.css">
+   
 
 </head>
-<body>
+<body  onload="imitationLoader()" >
     <div class="container">
-        <div class="row">
+        <div  class="row" >
+            <div id="loader" class="cols col-12">
+
+            </div>
+        </div>
+        <div id="informationBlock" class="row animate-bottom" style="display:none;">
             <div id='foto' class="cols col-4"></div>
             <div id='info' class="cols col-4"></div>
             <div id='repositories' class="cols col-4"></div>
 
         </div>
     </div>
-
-
        
-        <p>My website on GitHub Pages. It works!</p>
-
-
-    <script type="text/javascript" src="app/js/fetch.js"></script>    
+    <script type="text/javascript" src="app/js/fetch.js"></script>
+    <script type="text/javascript" src="app/js/loader.js"></script>  
+      
 </body>
 </html>
