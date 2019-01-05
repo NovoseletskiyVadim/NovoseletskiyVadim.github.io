@@ -1,8 +1,7 @@
-console.log('fetch.js=ok');
+// console.log('fetch.js=ok');
 
 getInfoProfileGit();
 getInfoRepositoryGit();
-
 
 
 
@@ -66,7 +65,7 @@ function getInfoRepositoryGit(){
 
     fetch(url)
         .then(function(response){
-            console.log("1 st promise",response);
+            // console.log("1 st promise",response);
             if(response.status==200){
 
                 return response.json();
@@ -74,9 +73,8 @@ function getInfoRepositoryGit(){
             
         })
         .then(function(response){
-            console.log("2 promise", response);
+            // console.log("2 promise", response);
 
-            // document.getElementById('repositories').innerHTML='';
             var h_2=document.createElement('h2');
             h_2.innerText="My List Repositories :";
 
@@ -105,7 +103,15 @@ function getInfoRepositoryGit(){
             for(let i=0;i<response.length;i++){
 
                 document.getElementById('elem'+i).onclick=function(){
-                    console.log("ok click=",response[i].full_name);
+                    // console.log("click=ok");
+                    document.getElementById('divInfoLastComit').innerHTML='';
+                    var h_3=document.createElement('h3');
+                    h_3.innerText='Last commit was :';
+                    divInfoLastComit.appendChild(h_3);
+
+                    var dateLastComit=document.createElement('p');
+                    dateLastComit.innerText="date: "+response[i].updated_at;
+                    divInfoLastComit.appendChild(dateLastComit);
                        
                 };
 
